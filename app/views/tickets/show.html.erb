@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Status</b>
+  <%= @ticket.status %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @ticket.user_id %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @ticket.title %>
+</p>
+
+<p>
+  <b>Priority:</b>
+  <%= @ticket.priority %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @ticket.description %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @ticket.type %>
+</p>
+
+<p>
+  <b>Project:</b>
+  <%= @ticket.project_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_ticket_path(@ticket) %> |
+<%= link_to 'Back', tickets_path %>
+
+
+<h1> Comments : </h1>
+
+<% @comments.each do |comment| %>
+<%= comment.content %>
+<%end%>
+
+<%=simple_form_for @commentnew do |f|%>
+<%= f.input :content ,as: :text ,size: 40%>
+<%end%>

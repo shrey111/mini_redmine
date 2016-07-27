@@ -1,0 +1,27 @@
+
+<% @projects.each do |project| %>
+  <tr>
+  <div class="row top-buffer" style="background:lightgrey">
+    <div class="col-md-4">
+      <td><%= project.name %></td>
+    </div>
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      <div class="hover-btn">
+        <button type="button"  class="btn-success">
+        <td><%= link_to 'Show', project %></td>
+        </button>
+        <button type="button"  class="btn-primary"><td><%= link_to 'Edit', edit_project_path(project) %></td>   
+        </button>
+        <button type="button" class="btn-danger"><td><%= link_to 'Destroy', project, confirm: 'Are you sure?', method: :delete %></td>  
+        </button>
+      </div>
+    </div>
+  </div>
+  </tr><br>
+<% end %>
+</table>
+
+<button type="button" class="btn btn-primary active" ><%= link_to 'New Project', new_project_path ,style: "color: black;"%>
+</button>
