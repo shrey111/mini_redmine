@@ -2,13 +2,20 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   before_filter :authenticate_user!
+  before_filter :beautify, :only => [:index]
   def index
 
-    if params[:search_term].present?
-      @projects = Project.where("name like '%#{params[:search_term]}%'")
-    else 
+    if params[:query].present?
+      @projects = Project.custom_search(params[:query]).results
+    else
       @projects = Project.all
     end
+
+    #if params[:search_term].present?
+     # @projects = Project.where("name like '%#{params[:search_term]}%'")
+    #else 
+     # @projects = Project.all
+    #end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -94,7 +101,7 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def search
-    
+  def beautify
+    redirect_to search_projects_path(query: params[:q]) if params[:q].present?    
   end
 end

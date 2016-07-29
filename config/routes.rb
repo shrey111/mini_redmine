@@ -1,7 +1,9 @@
 MiniRedmine::Application.routes.draw do
   resources :comments
   
-  resources :projects
+  resources :projects do
+    get 'search/*query', :to=> 'projects#index', as: :search, on: :collection
+  end
 
 
   get "home/dashboard"
