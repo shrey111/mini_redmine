@@ -1,3 +1,4 @@
-<h1>WELCOME</h1>
+<h1><marquee><span style="color:blue">WELCOME</span></marquee></h1>
 <h2>This is mini red mine</h2>
-<p>There are <%= @count %> projects right now.</p>
+
+<p>There are <%= link_to "#{@count} project" ,projects_path %>  .</p>

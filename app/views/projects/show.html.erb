@@ -3,16 +3,16 @@
 
   <h1> Project name</h1>
 <p>
-  <%= @project.name %>
+  <%=link_to @project.name,project_path(@project) %>
 
   
   
 </p>
 <h1> Tickets of projects </h1>
 <% @tickets.each do |ticket| %>
-<%= ticket.title %><br>
+<%= link_to ticket.title,project_ticket_path(ticket) %><br>
 <%end%>
 
-
+<%=link_to "Create Ticket", new_project_ticket_path(@project)  %>
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>

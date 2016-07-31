@@ -6,6 +6,7 @@ class TicketsController < ApplicationController
       @tickets=Ticket.find_all_by_project_id(params[:id])
     else
     @tickets = Ticket.all
+    
     end
     respond_to do |format|
       format.html # index.html.erb

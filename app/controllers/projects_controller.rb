@@ -1,12 +1,13 @@
 class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
-  before_filter :authenticate_user!
-  before_filter :beautify, :only => [:index]
+  
+  #before_filter :beautify, :only => [:index]
   def index
+    
+    if params[:q].present?
+      @projects = Project.custom_search(params[:q]).results
 
-    if params[:query].present?
-      @projects = Project.custom_search(params[:query]).results
     else
       @projects = Project.all
     end
@@ -101,7 +102,5 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def beautify
-    redirect_to search_projects_path(query: params[:q]) if params[:q].present?    
-  end
+ 
 end

@@ -1,4 +1,3 @@
-
 <% @projects.each do |project| %>
   <tr>
   <div class="row top-buffer" style="background:lightgrey">
@@ -10,11 +9,12 @@
     <div class="col-md-4">
       <div class="hover-btn">
         <button type="button"  class="btn-success">
-        <td><%= link_to 'Show', project_path(project) %></td>
+
+        <td><%= link_to 'Show', project_path(project.id) %></td>
         </button>
-        <button type="button"  class="btn-primary"><td><%= link_to 'Edit', edit_project_path(project) %></td>   
+        <button type="button"  class="btn-primary"><td><%= link_to 'Edit', edit_project_path(project.id) %></td>   
         </button>
-        <button type="button" class="btn-danger"><td><%= link_to 'Destroy', project_path(project), confirm: 'Are you sure?', method: :delete %></td>  
+        <button type="button" class="btn-danger"><td><%= link_to 'Destroy', project_path(project.id), confirm: 'Are you sure?', method: :delete %></td>  
         </button>
       </div>
     </div>
