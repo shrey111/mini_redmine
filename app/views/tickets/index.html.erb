@@ -1,8 +1,9 @@
 <h1>Listing tickets</h1>
-
-<table>
+<div class="table-responsive">
+<table class="table">
+<thead>
   <tr>
-    <th>Status</th>
+    <th >Status</th>
     <th>User</th>
     <th>Title</th>
     <th>Priority</th>
@@ -13,7 +14,7 @@
     <th></th>
     <th></th>
   </tr>
-
+  </thead>
 <% @tickets.each do |ticket| %>
   <tr>
     <td><%= ticket.status %></td>
@@ -28,8 +29,9 @@
     <td><%= link_to 'Destroy', ticket, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
-</table>
 
+</table>
+</div>
 <br />
 
-<%= link_to 'New Ticket', new_ticket_path %>
+<%= link_to 'New Ticket', new_ticket_path ,style: "color:darkblue"%>

@@ -1,11 +1,12 @@
 <p id="notice"><%= notice %></p>
   <h1> Project name</h1>
-<p>
-  <%=link_to @project.name,project_path(@project) %>
-</p>
+<h1><small>
+  <%=link_to @project.name,project_path(@project),style: "color:green" %>
+</small></h1>
+
 <h1> Tickets of projects </h1>
 <% @tickets.each do |ticket| %>
-<%= link_to ticket.title,ticket_path(ticket) %><br>
+<h3><%= link_to ticket.title,ticket_path(ticket),style: "color:blue" %></h3>
 <%end%>
 
 <%=link_to "Create Ticket" , new_ticket_path(:car=>@project.id) %> |

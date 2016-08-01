@@ -7,7 +7,8 @@ MiniRedmine::Application.routes.draw do
 
 
   devise_for :users
-
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
   root to: 'home#dashboard', as: 'dashboard'
 
   # The priority is based upon order of creation:

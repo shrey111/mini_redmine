@@ -65,6 +65,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
+        ProjectMailer.delay_for(1.minute).project_create_mail(@project)
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
         format.json { render json: @project, status: :created, location: @project }
       else
@@ -81,6 +82,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.update_attributes(params[:project])
+        ProjectMailer.delay_for(1.minute).project_update_mail(@project)
         format.html { redirect_to @project, notice: 'Project was successfully updated.' }
         format.json { head :ok }
       else

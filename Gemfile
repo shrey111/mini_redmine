@@ -24,6 +24,8 @@ gem 'mysql2', '0.3.18'
 gem 'jquery-rails'
 gem 'devise'
 gem 'simple_form'
+gem 'sidekiq' ,'~>2.16.1'
+gem 'sinatra', :require => false
 gem "cocoon"
 gem 'elasticsearch-rails'
 gem 'elasticsearch-model'

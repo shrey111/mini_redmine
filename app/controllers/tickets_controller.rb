@@ -18,8 +18,10 @@ class TicketsController < ApplicationController
   # GET /tickets/1.json
   def show
     @ticket = Ticket.find(params[:id])
-    @comments= @ticket.comments
-    @commentnew =Comment.new
+    @comments= @ticket.comments.order('created_at DESC')
+
+    @commentnew =Comment.new(commentable_id: @ticket.id, commentable_type: 'Ticket')
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @ticket }
