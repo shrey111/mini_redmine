@@ -1,9 +1,8 @@
 MiniRedmine::Application.routes.draw do
   get "home/dashboard"
   
-  resources :projects  do
-    resources :tickets
-  end
+  resources :projects  
+  resources :tickets
   resources :comments
 
 

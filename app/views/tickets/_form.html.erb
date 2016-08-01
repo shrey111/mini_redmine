@@ -12,14 +12,21 @@
   <% end %>
 
 
-<%= f.input :status %>
+<% #= f.input :status %>
+<%= f.input :status, collection: Ticket::STATUS ,prompt: "Assign status" %> 
 <%= f.association :user, collection: User.all, prompt: "Assign a user" %>
 <%= f.input :title %>
-<%= f.input :priority %>
+<%= f.input :priority ,collection: Ticket::PRIORITIES ,prompt: "Set Priority" %>
+<%#= current_user.id %>
+
 <%= f.input :description %>
 <%= f.input :type %>
-<%= f.input :project_id %>
+<% if params[:car].present? %>
+<%= f.hidden_field :project_id, value: params[:car]  %>
+<% else %> 
 
+<%= f.association :project, collection: Project.all ,prompt: "Assign a Project id" %>
+<% end %>
 <h3>comments</h3>
   <div id='comments'>
    

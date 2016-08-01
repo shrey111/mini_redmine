@@ -45,7 +45,7 @@ class TicketsController < ApplicationController
   # POST /tickets
   # POST /tickets.json
   def create
-    debugger
+    
     @ticket = Ticket.new(params[:ticket])
 
     respond_to do |format|
