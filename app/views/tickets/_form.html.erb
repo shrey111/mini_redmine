@@ -22,7 +22,7 @@
 <%= f.hidden_field :project_id, value: params[:car]  %>
 <% else %> 
 
-<%= f.association :project, collection: Project.all ,prompt: "Assign a Project id" %>
+<%= f.association :project, collection: Project.all ,prompt: "Assign a Project" %>
 <% end %> 
 
 

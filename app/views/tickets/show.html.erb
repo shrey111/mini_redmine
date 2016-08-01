@@ -40,19 +40,14 @@
 <%= link_to 'Back', tickets_path %>
 
 
-<h1> Comments : </h1>
-<% @comments.each do |comment| %>
-<div class="row">
-<div class="col-md-3"><%= User.find(comment.user_id).name %> :</div>  
-<div class="col-md-3 comment-body-style" ><%= comment.content %> </div><br>
-<div clas="col-md-6" style="width: 500px;"></div>
-</div>
-<%end%> 
-
-<%=simple_form_for @commentnew do |f|%>
-<%= f.input :content ,as: :text ,size: 40%>
+<%=simple_form_for @commentnew ,remote: true do |f|%>
+<%= f.text_area :content ,rows: 2 ,id: "text-area-comments"%>
 <%=f.hidden_field :commentable_id,value: @ticket.id %>
 <%=f.hidden_field :commentable_type,value: 'ticket' %>
 <%=f.hidden_field :user_id,value: current_user.id %>
 <%= f.submit   %>
 <%end%>
+<h1> Comments : </h1>
+<p id="fetch-ajax" >
+</p>
+<%= render @comments %>

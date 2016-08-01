@@ -9,6 +9,7 @@ class Project < ActiveRecord::Base
   has_many :comments, as: :commentable
 
   validates :name, presence: true ,length: {maximum: 20}
+  validates :users, presence: true
 
   mapping do
     indexes :name 

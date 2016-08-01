@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
       @projects = Project.custom_search(params[:q]).results
 
     else
-      @projects = Project.all
+      @projects = current_user.projects
     end
 
     #if params[:search_term].present?
