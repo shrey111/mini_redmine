@@ -1,11 +1,14 @@
-<div class="authform">
-  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :role => 'form'}) do |f| %>
+<div class="row authform">
+<div class="col-md-4"></div>
+  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :role => 'form', class: "col-md-4 form-adjustment" }) do |f| %>
     <h3>Sign in</h3>
     <%= devise_error_messages! %>
     <div class="form-group">
-      <%- if devise_mapping.registerable? %>
+    <%- if devise_mapping.registerable? %>
         <%= link_to 'Sign up', new_registration_path(resource_name), class: 'right'  %>
       <% end -%>
+
+      
       <%= f.label :email %>
       <%= f.email_field :email, :autofocus => true, class: 'form-control' %>
     </div>
@@ -16,7 +19,7 @@
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
     </div>
-      <%= f.submit 'Sign in', :class => 'button right' %>
+      <%= f.submit 'Sign in', :class => 'btn btn-primary' %>
       <% if devise_mapping.rememberable? -%>
         <div class="checkbox" style="width:150px">
           <label>

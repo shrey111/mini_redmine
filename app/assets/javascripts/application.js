@@ -10,3 +10,8 @@
 //= require jquery_ujs
 //= require cocoon
 //= require_tree .
+
+function email_pass_check(){
+  if document.getElementById("#email_id").length()==0
+    alert ("Email is absent");
+}; 

@@ -7,6 +7,18 @@ MiniRedmine::Application.routes.draw do
 
 
   devise_for :users
+<<<<<<< Updated upstream
+=======
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
+  root :to => "home#dashboard"
+  #match '/' => 'home#dashboard '
+
+  #devise_scope :user do
+  #  root :to => 'devise/sessions#new'
+  #end
+
+>>>>>>> Stashed changes
 
   root to: 'home#dashboard', as: 'dashboard'
 
