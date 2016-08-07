@@ -7,7 +7,7 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: trips3m_development
+  database: demo
   pool: 5
   username: root
   password: root
@@ -21,7 +21,7 @@ test:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: trips3m_test
+  database: demo
   pool: 5
   username: root
   password: root

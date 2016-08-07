@@ -30,7 +30,6 @@ class TicketsController < ApplicationController
   # GET /tickets/new.json
   def new
     @ticket = Ticket.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @ticket }

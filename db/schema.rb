@@ -11,7 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160726194859) do
+ActiveRecord::Schema.define(:version => 20160807114252) do
+
+  create_table "assignee_gtickets", :force => true do |t|
+    t.integer "user_id"
+    t.integer "ticket_id"
+  end
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -20,6 +25,11 @@ ActiveRecord::Schema.define(:version => 20160726194859) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "ntickets_watchers", :force => true do |t|
+    t.integer "user_id"
+    t.integer "ticket_id"
   end
 
   create_table "projects", :force => true do |t|
@@ -39,7 +49,7 @@ ActiveRecord::Schema.define(:version => 20160726194859) do
     t.string   "title"
     t.string   "priority"
     t.text     "description"
-    t.string   "type"
+    t.string   "tracker"
     t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
