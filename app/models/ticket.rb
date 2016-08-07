@@ -1,6 +1,6 @@
 class Ticket < ActiveRecord::Base
 	belongs_to :user
- # belongs_to :assignee , :class_name => 'assignee_gtickets'
+  belongs_to :assignee , :class_name => 'User' 
   belongs_to :project
   has_many :comments, as: :commentable
   has_and_belongs_to_many :watchers ,join_table: 'ntickets_watchers' , :class_name => 'User'

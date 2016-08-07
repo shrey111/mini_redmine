@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :projects
   has_many :tickets
- # has_many :gtickets , :class_name => 'assignee_gtickets'
+  has_many :gtickets , :class_name => 'Ticket' 
   has_and_belongs_to_many :ntickets , :class_name => 'Ticket' , :join_table => 'ntickets_watchers'
   has_many :comments
 end
